@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2021 Prysmatic Labs
+# Copyright (c) 2021 Prysmatic Labs
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -40,11 +40,7 @@ func Hash(digests [][32]byte, chunks [][32]byte) error {
 	if len(digests) < len(chunks)/2 {
 		return fmt.Errorf("not enough digest length, need at least %v, got %v", len(chunks)/2, len(digests))
 	}
-	if supportedCPU {
-		_hash(&digests[0][0], chunks, uint32(len(chunks)/2))
-	} else {
-		sha256_1_generic(digests, chunks)
-	}
+	sha256_1_generic(digests, chunks)
 	return nil
 }
 
