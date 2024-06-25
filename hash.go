@@ -27,8 +27,6 @@ import (
 	"fmt"
 )
 
-func _hash(digests *byte, p [][32]byte, count uint32)
-
 func Hash(digests [][32]byte, chunks [][32]byte) error {
 	if len(chunks) == 0 {
 		return nil
@@ -42,8 +40,4 @@ func Hash(digests [][32]byte, chunks [][32]byte) error {
 	}
 	sha256_1_generic(digests, chunks)
 	return nil
-}
-
-func HashChunks(digests [][32]byte, chunks [][32]byte) {
-	_hash(&digests[0][0], chunks, uint32(len(chunks)/2))
 }
